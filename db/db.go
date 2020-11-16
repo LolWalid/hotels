@@ -1,4 +1,4 @@
-package main
+package db
 
 import(
     "database/sql"
@@ -19,7 +19,7 @@ var (
     db *sql.DB
 )
 
-func connectToDb() {
+func ConnectToDb() {
     psqlInfo := fmt.Sprintf("host=%s port=%d user=%s dbname=%s sslmode=disable", host, port, user, dbname)
 
     d, err := sql.Open("postgres", psqlInfo)

@@ -1,13 +1,15 @@
-package main
+package api
 
 import(
     "fmt"
     "net/http"
     "strings"
+
+    "lolwalid/server/db"
 )
 
 func RoomIndex(w http.ResponseWriter, r *http.Request) {
-    rows := GetRooms()
+    rows := db.GetRooms()
 
     var sb strings.Builder
 

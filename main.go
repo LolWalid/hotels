@@ -3,17 +3,19 @@ package main
 import(
     "log"
     "net/http"
+    "lolwalid/server/db"
+    "lolwalid/server/api"
 )
 
 
 func init() {
-    defer connectToDb()
+    defer db.ConnectToDb()
 }
 
 
 func main() {
-    http.HandleFunc("/rooms", RoomIndex)
-    http.HandleFunc("/", RoomIndex)
+    http.HandleFunc("/rooms", api.RoomIndex)
+    http.HandleFunc("/", api.RoomIndex)
 
     // http.HandleFunc("/bar", func(w http.ResponseWriter, r *http.Request) {
     //     fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
